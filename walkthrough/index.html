@@ -9,7 +9,7 @@
     <!-- First add Bootstraps styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Then add the Bootstrap hotspot styling -->
-    <link rel="stylesheet" href="./bootstrap-hotspots.min.css">
+    <link rel="stylesheet" href="./adiHotspots.min.css">
     <!-- Make sure to include Jquery and Bootstraps javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -26,11 +26,20 @@
                 For more information on how to do this go to <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstraps documentation</a>.
                 <br>
                 After you've done that add the <code>bootstrap-hotspot.css</code> file to your page and you're ready to go!
-                <span class="highlight-spot top left" id="hotspot1" data-content="This is an example hotspot!">1</span>
-                <span id="highlightPopup1" class="modal-body bg-white rounded" style="position:absolute;display: none;width: 14em;">
-                    <button class="btn btn-sm btn-secondary" id="hotspotOff1">Got it</button>
+                <span class="highlight-spot top left" id="hotspot1">1</span>
+                <span id="highlightPopup1" class="p-2 bg-white rounded border border-warning shadow" style="position:absolute;display: none;width: 12em;">
+                    <span class="text-secondary mb-2">data</span><br>
+                    <button class="btn btn-sm btn-outline-success" id="hotspotOff1">Got It</button>
                 </span>
             </p>
+        </div>
+        <div class="position-relative" style="width: fit-content;">
+            <button class="btn btn-sm btn-outline-success" id="">Got It</button>
+            <span class="highlight-spot top right" id="hotspot2">2</span>
+            <span id="highlightPopup2" class="p-2 bg-white rounded border border-warning shadow" style="position:absolute;display: none;width: 12em;">
+                <span class="text-secondary mb-2">data</span><br>
+                <button class="btn btn-sm btn-outline-success" id="hotspotOff2">Got It</button>
+            </span>
         </div>
     </div>
 </body>
@@ -44,6 +53,16 @@
     $("#hotspotOff1").click(function(){
         $("#highlightPopup1").css({display: 'none'});
         $("#hotspot1").css({display: 'none'});
+    });
+    $("#hotspot2").click(function(){
+        let pos = $(this).position();
+        let top = pos.top;
+        let left = pos.left;
+        $("#highlightPopup2").css({top: top, left: left+24,display: 'block'});
+    });
+    $("#hotspotOff2").click(function(){
+        $("#highlightPopup2").css({display: 'none'});
+        $("#hotspot2").css({display: 'none'});
     });
 </script>
 </html>
