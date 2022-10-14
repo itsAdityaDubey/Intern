@@ -3,3 +3,9 @@ $read = fopen("https://www.example.com", "rb", false, $stream);
 $cont = stream_context_get_params($read);
 $var = ($cont["options"]["ssl"]["peer_certificate"]);
 $result = (!is_null($var)) ? true : false;
+
+
+$display_errors = ini_get('display_errors'); 
+ini_set('display_errors', 0);
+
+ini_set('display_errors', $display_errors);
