@@ -9,3 +9,11 @@ $display_errors = ini_get('display_errors');
 ini_set('display_errors', 0);
 
 ini_set('display_errors', $display_errors);
+
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+  // true for mobile device
+  document.write("mobile device");
+}else{
+  // false for not mobile device
+  document.write("not mobile device");
+}
